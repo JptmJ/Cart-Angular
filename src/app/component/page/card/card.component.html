@@ -1,0 +1,16 @@
+<div class="row">
+    <div class=" py-5 col-md-4" *ngFor="let product of products center-card">
+        <div class="card" style="width: 18rem;">
+            <img [src]="product.thumbnail" [alt]="product.name" class="card-img-top">
+            <div class="card-body">
+                <h5 class="card-title more-line">{{product.title}}</h5>
+                <hr>
+                <p class="card-text more-line">{{product.description}}</p>
+                <p class="card-text">₹{{product.price}}<span
+                        class="text-percentage ">(-{{product.discountPercentage}}%)</span>
+                </p>
+                <a (click)="addToCart(product)" class="btn btn-primary">Add to cart</a>
+            </div>
+        </div>
+    </div>
+</div>

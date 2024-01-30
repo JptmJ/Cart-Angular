@@ -1,0 +1,8 @@
+.container {
+    justify-content: center !important;
+}
+
+.center-card {
+    display: flex;
+    justify-content: center;
+}

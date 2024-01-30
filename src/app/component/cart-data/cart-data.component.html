@@ -1,0 +1,40 @@
+<!-- {{ cartService.getItems() | json }} -->
+
+<div class="shopping-cart">
+    <div class="title">
+        Shopping Bag
+    </div>
+
+    <div class="item" *ngFor="let item of cartService.getItems() center-card">
+        <div (click)="deleteFromCart(item)" class="buttons">
+            <span class="delete-btn">
+                <i class="fa-solid fa-trash"></i>
+            </span>
+        </div>
+
+        <div class="image">
+            <img class="image-set" [src]="item.thumbnail" [alt]="item.title" />
+        </div>
+
+        <div class="description">
+            <span>{{item.description}}</span>
+        </div>
+
+        <div class="quantity">
+            <button (click)="cartService.incrementQuantity(item.id)" class="plus-btn" type="button" name="button">
+                <i class="fa-solid fa-plus"></i>
+            </button>
+            <input type="text" name="name" value="{{item.quantity}}">
+            <button (click)="cartService.decrementQuantity(item.id)" class="minus-btn" type="button" name="button">
+                <i class="fa-solid fa-minus"></i>
+            </button>
+        </div>
+
+        <div class="total-price">₹{{item.price}}</div>
+        <hr>
+    </div>
+    <div class="total-amount row">
+        <div class="col-md-6">Total Amount</div>
+        <div class="amount col-md-6">₹{{cartService.getTotal()}}</div>
+    </div>
+</div>
